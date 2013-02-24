@@ -59,31 +59,21 @@ class Lattice {
 
 			}
 		};
-		void UpdateLattice1() {
-#pragma omp parallel
+
+		void UpdateLattice(const std::vector<Cell>& inCell, std::vector<Cell>& outCell) {
 			for (int i=0; i<N; i++) {
 				//std::cout << i << std::endl;
-				cells1[i].current = cells2[i].Update(cells2,i, L, N);
-				if (cells1[i].x < 0.01) cells1[i].current = RIGHT;
-				else if (cells2[i].x > .99) cells2[i].current = RIGHT;
-				//if ((cells1[i].y > 0.99) || (cells1[i].y < 0.01))  cells1[i].current =0;
+				outCell[i].current = inCell[i].Update(inCell,i, L, N);
+				if (outCell[i].x < 0.01) outCell[i].current = RIGHT;
+				//if ((outCell[i].y > 0.99) || (outCell[i].y < 0.01))  outCells[i].current =0;
 			}
 		}
 
-		void UpdateLattice2() {
-#pragma omp parallel
-			for (int i=0; i<N; i++) {
-				cells2[i].current = cells1[i].Update(cells1,i, L, N);
-				if (cells2[i].x < 0.01) cells2[i].current = RIGHT;
-				else if (cells2[i].x > .99) cells2[i].current = RIGHT;
-				//if ((cells2[i].y > 0.90) || (cells2[i].y < 0.01))  cells1[i].current =0;
-			}
-		}
 		void FullUpdate() {
 			//std::cout << "here" << std::endl;
-			UpdateLattice2();
+			UpdateLattice(cells1, cells2);
 			//Inject(cells2);
-			UpdateLattice1();
+			UpdateLattice(cells2, cells1);
 			//Inject(cells1);
 			
 		}
