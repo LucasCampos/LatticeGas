@@ -1,7 +1,7 @@
 LatticeGas
 ==========
 
-Resultado do projeto de Métodos Computacionais Para a Física. Uma versão paralela pode ser encontrada aqui: https://github.com/LucasCampos/LatticeGas
+Resultado do projeto de Métodos Computacionais Para a Física. Uma versão paralela pode ser encontrada aqui: https://github.com/LucasCampos/LatticeGasCUDA
 
 ==================REQUISITOS==================
 
