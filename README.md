@@ -1,7 +1,7 @@
 LatticeGas
 ==========
 
-Resultado do projeto de Métodos Computacionais Para a Física
+Resultado do projeto de Métodos Computacionais Para a Física. Uma versão paralela pode ser encontrada aqui: https://github.com/LucasCampos/LatticeGas
 
 ==================REQUISITOS==================
 
@@ -19,4 +19,13 @@ Também existe a opção de compilar e rodar o programa
 
 	make run
 
-==============================================
+==================MÉTRICA=====================
+
+Velocidade de iteração, em um processador i7-3612QM, sem visualização
+
+|L   | ms/ite |
+|----|--------|
+|192 | 0.2397 |
+|384 | 1.8964 |
+|576 | 4.2256 |
+|768 | 7.3948 |
